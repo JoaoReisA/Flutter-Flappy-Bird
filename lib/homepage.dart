@@ -10,10 +10,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  double birdYaxis = 0;
+  static double birdYaxis = 0;
   double time = 0;
   double height = 0;
-  double initialHeight = 0;
+  double initialHeight = birdYaxis;
+  bool gamehasStarted = false;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,13 @@ class _HomePageState extends State<HomePage> {
         Expanded(
             flex: 2,
             child: GestureDetector(
-              onTap: jump,
+              onTap: () {
+                if (gamehasStarted) {
+                  jump();
+                } else {
+                  startgame();
+                }
+              },
               child: AnimatedContainer(
                 duration: Duration(milliseconds: 0),
                 alignment: Alignment(0, birdYaxis),
@@ -41,15 +48,23 @@ class _HomePageState extends State<HomePage> {
 
 //simulating the gravity while calculate the jump of the bird
   void jump() {
-    initialHeight = birdYaxis;
+    setState(() {
+      time = 0;
+      initialHeight = birdYaxis;
+    });
+  }
+//start the game using a timer to start jumping
+  void startgame() {
+    gamehasStarted = true;
     Timer.periodic(const Duration(milliseconds: 60), (timer) {
       time += 0.05;
       height = -4.9 * time * time + 2.8 * time;
       setState(() {
         birdYaxis = initialHeight - height;
       });
-      if (birdYaxis > 0) {
+      if (birdYaxis > 1) {
         timer.cancel();
+        gamehasStarted = false;
       }
     });
   }
