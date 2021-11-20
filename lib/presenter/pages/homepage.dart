@@ -56,23 +56,23 @@ class _HomePageState extends State<HomePage> {
                   ),
                   AnimatedContainer(
                     alignment: Alignment(barrierXone, 1.1),
-                    duration: Duration(milliseconds: 0),
-                    child: MyBarrier(size: 200.0),
+                    duration: const Duration(milliseconds: 0),
+                    child: const MyBarrier(size: 200.0),
                   ),
                   AnimatedContainer(
                     alignment: Alignment(barrierXone, -1.1),
-                    duration: Duration(milliseconds: 0),
-                    child: MyBarrier(size: 200.0),
+                    duration: const Duration(milliseconds: 0),
+                    child: const MyBarrier(size: 200.0),
                   ),
                   AnimatedContainer(
                     alignment: Alignment(barrierXtwo, 1.1),
-                    duration: Duration(milliseconds: 0),
-                    child: MyBarrier(size: 150.0),
+                    duration: const Duration(milliseconds: 0),
+                    child: const MyBarrier(size: 150.0),
                   ),
                   AnimatedContainer(
                     alignment: Alignment(barrierXtwo, -1.1),
-                    duration: Duration(milliseconds: 0),
-                    child: MyBarrier(size: 250.0),
+                    duration: const Duration(milliseconds: 0),
+                    child: const MyBarrier(size: 250.0),
                   ),
                 ])),
             Container(
