@@ -10,7 +10,7 @@ class ScoresWidget extends StatelessWidget {
       children: [
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: const [
             Text(
               "SCORE",
               style: TextStyle(color: Colors.white, fontSize: 20),
@@ -24,7 +24,7 @@ class ScoresWidget extends StatelessWidget {
         ),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: const [
             Text(
               "BEST",
               style: TextStyle(color: Colors.white, fontSize: 20),

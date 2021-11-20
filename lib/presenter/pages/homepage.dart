@@ -1,6 +1,6 @@
-import 'package:app/barriers.dart';
-import 'package:app/bird.dart';
-import 'package:app/scores.dart';
+import 'package:app/presenter/widgets/barriers.dart';
+import 'package:app/presenter/widgets/bird.dart';
+import 'package:app/presenter/widgets/scores.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
