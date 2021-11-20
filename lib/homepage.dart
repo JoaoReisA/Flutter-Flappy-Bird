@@ -11,6 +11,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   double birdYaxis = 0;
+  double time = 0;
+  double height = 0;
+  double initialHeight = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -36,11 +39,18 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+//simulating the gravity while calculate the jump of the bird
   void jump() {
-    Timer.periodic(Duration(milliseconds: 100), (timer) {
+    initialHeight = birdYaxis;
+    Timer.periodic(const Duration(milliseconds: 60), (timer) {
+      time += 0.05;
+      height = -4.9 * time * time + 2.8 * time;
       setState(() {
-        birdYaxis -= 0.1;
+        birdYaxis = initialHeight - height;
       });
+      if (birdYaxis > 0) {
+        timer.cancel();
+      }
     });
   }
 }
