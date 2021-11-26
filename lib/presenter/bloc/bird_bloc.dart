@@ -5,9 +5,11 @@ part 'bird_event.dart';
 part 'bird_state.dart';
 
 class BirdBloc extends Bloc<BirdEvent, BirdState> {
-  BirdBloc() : super(BirdInitial()) {
-    on<BirdEvent>((event, emit) {
-      // TODO: implement event handler
+  BirdBloc() : super(BirdInitialState()) {
+    on<GetEventJump>((event, emit) {
+      emit(BirdJumplLoading());
+
+      emit(BirdJumpLoaded());
     });
   }
 }
