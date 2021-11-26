@@ -5,8 +5,12 @@ abstract class BirdState {}
 
 class BirdInitialState extends BirdState {}
 
-class BirdJumplLoading extends BirdState {
+class BirdJumplLoading extends BirdState {}
+
+class BirdJumpLoaded extends BirdState {
+  final time;
+  final initialHeight;
+
+  BirdJumpLoaded({required this.time, required this.initialHeight});
   
 }
-
-class BirdJumpLoaded extends BirdState {}

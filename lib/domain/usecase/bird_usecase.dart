@@ -1,3 +1,5 @@
+import 'dart:async';
+
 class BirdUsecase {
   static double birdYaxis = 0;
   double time = 0;
@@ -13,7 +15,31 @@ class BirdUsecase {
     return [time, initialHeight];
   }
 
-  startGame(){
-    
+  void startgame() {
+    gameHasStarted = true;
+    Timer.periodic(const Duration(milliseconds: 60), (timer) {
+      barrierXone += 0.01;
+      barrierXtwo += 0.01;
+      time += 0.05;
+      height = -4.9 * time * time + 2.8 * time;
+      birdYaxis = initialHeight - height;
+
+      barrierXone -= 0.05;
+      barrierXtwo -= 0.05;
+      if (barrierXone < -2) {
+        barrierXone += 3.5;
+      } else {
+        barrierXone -= 0.05;
+      }
+      if (barrierXtwo < -2) {
+        barrierXtwo += 3.5;
+      } else {
+        barrierXtwo -= 0.05;
+      }
+      if (birdYaxis > 1) {
+        timer.cancel();
+        gameHasStarted = false;
+      }
+    });
   }
 }
